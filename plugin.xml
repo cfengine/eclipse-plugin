@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.7"?>
+
+<plugin>
+	<extension point="org.eclipse.core.resources.natures" id="nature">
+      <runtime>
+         <run class="com.cfengine.eclipse.Nature"> </run>
+      </runtime>
+   </extension>
+   
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="com.cfengine.eclipse.editor.PolicyEditor"
+            default="false"
+            icon="icons/policy.gif"
+            id="com.cfengine.eclipse.editor"
+            name="CFEngine Policy Editor">
+         <contentTypeBinding contentTypeId="com.cfengine.eclipse.content-type" />
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.cfengine.eclipse.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+	<extension point="org.eclipse.core.runtime.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="cf"
+            id="com.cfengine.eclipse.content-type"
+            name="CFEngine Policy"
+            priority="high">
+      </content-type>
+   </extension>
+
+	<extension point="org.eclipse.dltk.core.language">
+      <language
+            class="com.cfengine.eclipse.LanguageToolkit"
+            nature="com.cfengine.eclipse.nature"
+            priority="0">
+      </language>
+   </extension>
+   
+   <extension point="org.eclipse.dltk.ui.language">
+      <language
+            class="com.cfengine.eclipse.UILanguageToolkit"
+            nature="com.cfengine.eclipse.nature"
+            priority="0">
+      </language>
+   </extension>
+
+	<extension point="org.eclipse.ui.newWizards">
+      <wizard
+            category="com.cfengine.eclipse.category"
+            class="com.cfengine.eclipse.wizard.NewPolicyProject"
+            icon="icons/policy.gif"
+            id="com.cfengine.eclipse.wizard.NewPolicyProject"
+            name="CFEngine Policy Project"
+            project="true">
+      </wizard>
+      
+      <wizard
+      	category="com.cfengine.eclipse.category"
+      	class="com.cfengine.eclipse.wizard.NewPolicyFile"
+      	icon="icons/policy.gif"
+      	id="com.cfengine.eclipse.wizard.NewPolicyFile"
+      	name="CFEngine Policy File"
+      	project="false">
+      </wizard>
+      
+      <category
+            id="com.cfengine.eclipse.category"
+            name="CFEngine">
+      </category>
+   </extension>
+
+</plugin>
