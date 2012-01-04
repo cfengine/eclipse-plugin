@@ -75,5 +75,24 @@
             name="CFEngine">
       </category>
    </extension>
+   
+	<extension point="org.eclipse.dltk.core.sourceParsers">
+		<parserContribution natureId="com.cfengine.eclipse.nature">
+			<parser
+				class="com.cfengine.eclipse.editor.PolicySourceParserFactory"
+				description="Policy Source Parser"
+				id="com.cfengine.eclipse.sourceParser"
+				name="sourceParser.name"
+				priority="0" />
+		</parserContribution>
+	</extension>   
+   
+	<extension point="org.eclipse.dltk.core.sourceElementParsers">
+		<parser
+			class="com.cfengine.eclipse.editor.PolicySourceElementParser"
+            nature="com.cfengine.eclipse.nature"
+            priority="1">
+		</parser>
+	</extension>
 
 </plugin>

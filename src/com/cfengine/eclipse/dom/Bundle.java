@@ -2,19 +2,12 @@ package com.cfengine.eclipse.dom;
 
 public class Bundle extends PolicyElement 
 {
-	private final String name;
 	private final String type;
 	
-	public Bundle(int offset, String name, String type)
+	public Bundle(int start, int end, String name, String type)
 	{
-		super(offset);
-		this.name = name;
+		super(start, end, name);
 		this.type = type;
-	}
-
-	public String getName() 
-	{
-		return name;
 	}
 
 	public String getType() 
